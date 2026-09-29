@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-bg: #FAF7F2;
+  --color-body: #EDE7DD;
+  --color-ink: #241F18;
+  --color-ink-soft: #3A3226;
+  --color-gray: #8A8173;
+  --color-border: #E4DCCB;
+  --color-border-light: #EFE9DC;
+  --color-placeholder: #F1E7DA;
+  --color-card: #FFFFFF;
+  --color-accent: #C0512F;
+  --color-accent-hover: #A8452A;
+  --color-accent-active: #8F3B24;
+  --color-accent-bg: #FBEDE6;
+  
+  --color-success: #2F9E6E;
+  --color-success-bg: #DDF0E6;
+  --color-warning: #A8710A;
+  --color-warning-bg: #FBF0DC;
+  --color-error: #B3261E;
+  --color-error-bg: #FBE9E7;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-body);
+  color: var(--color-ink);
+  font-family: 'Work Sans', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Custom scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #E4DCCB;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #8A8173;
+}
+
+/* Animations haut de gamme */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+@keyframes spinLoader {
+  to { transform: rotate(360deg); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.28s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+/* Spinner officiel Mbeng spécifié dans le manuel technique (anneau #413A2E, arc #C0512F) */
+.mbeng-spinner {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 4px solid #413A2E;
+  border-top-color: #C0512F;
+  animation: spinLoader 1s linear infinite;
+}
+
+.mbeng-spinner-sm {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2.5px solid #413A2E;
+  border-top-color: #C0512F;
+  animation: spinLoader 1s linear infinite;
+}
+
+/* Champs de formulaire posés sur un fond sombre (écrans de connexion) */
+.mbeng-dark-field label {
+  color: #C7BDA8;
+}
+
+/* Squelettes de chargement : la donnée n'est jamais remplacée par du vide */
+@keyframes skeletonShimmer {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+.mbeng-skeleton {
+  background: linear-gradient(90deg, #EFE9DC 25%, #F7F2E9 37%, #EFE9DC 63%);
+  background-size: 200% 100%;
+  animation: skeletonShimmer 1.4s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mbeng-skeleton,
+  .animate-fade-in,
+  .animate-slide-up,
+  .animate-scale-in {
+    animation: none;
+  }
+}
+
+/* Audio wave animation */
+@keyframes soundWave {
+  0%, 100% { height: 6px; }
+  50% { height: 22px; }
+}
+
+.sound-bar-1 { animation: soundWave 0.8s ease-in-out infinite; }
+.sound-bar-2 { animation: soundWave 1.1s ease-in-out infinite 0.2s; }
+.sound-bar-3 { animation: soundWave 0.7s ease-in-out infinite 0.4s; }
+.sound-bar-4 { animation: soundWave 1.3s ease-in-out infinite 0.1s; }

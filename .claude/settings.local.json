@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm -v)",
+      "Bash(timeout 180 npm install -D vitest)",
+      "Bash(npx vitest *)",
+      "Bash(timeout 180 npm install zod)",
+      "Bash(npx tsc *)"
+    ]
+  }
+}
